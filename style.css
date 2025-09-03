@@ -1,0 +1,386 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --speed: 12s;
+  --font-size: clamp(16px, 3.5vw, 20px);
+  --accent: #00c2a8;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+ul {
+  display: flex;
+  /* align-items: center; */
+  margin: 0 !important;
+}
+
+p {
+  margin-bottom: 0 !important;
+}
+
+ul li {
+  list-style: none;
+}
+
+/* HEADER-TOP */
+
+.header-top-main {
+  background-color: #0F2437;
+}
+
+.header-top {
+  background-color: #0F2437;
+  color: #ffff !important;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-top a {
+  color: #ffff;
+}
+
+.header-top a:hover,
+.gender li:hover {
+  color: #ff8531;
+  transition: all .1s;
+  cursor: pointer;
+}
+
+.header-top i {
+  color: #ff8531;
+  font-size: 22px;
+
+}
+
+.infor-indus {
+  display: flex;
+  gap: 40px;
+}
+
+.infor-indus a {
+  display: flex;
+  align-items: end;
+  gap: 10px;
+}
+
+.gender ul {
+  gap: 20px;
+  justify-content: space-between;
+}
+
+.marquee {
+  /* width:100%;
+    max-width:1100px; */
+  overflow: hidden;
+}
+
+/* track chứa 2 bản copy để loop mượt */
+.marquee-track {
+  display: flex;
+  gap: 48px;
+  align-items: center;
+  white-space: nowrap;
+  animation: scroll var(--speed) linear infinite;
+}
+
+.marquee-item {
+  font-weight: 600;
+  font-size: var(--font-size);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+
+/* dừng khi hover wrapper */
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+
+  /* vì track có 2 set giống nhau */
+}
+
+/* giảm motion cho người cần */
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+    transform: none;
+  }
+}
+
+
+/* HEADER-CENTER */
+.header-center {
+  padding: 20px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo img {
+  height: 100px;
+}
+
+.policy ul {
+  /* margin-left: 55px !important; */
+  gap: 107px;
+}
+
+.policy li img {
+  height: 50px;
+  width: auto;
+  margin-right: 10px;
+}
+
+.policy li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.policy li a {
+  color: black !important;
+}
+
+/* HEADER-BOTTOM */
+.header-bottom {
+  display: flex;
+  /* align-items: center; */
+}
+
+.main-list-products {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: fit-content;
+  background-color: #FF8531;
+  border-radius: 10px;
+  padding: 10px;
+  color: #ffff;
+  cursor: pointer;
+  width: 310px;
+}
+
+.main-list-products p {
+  margin: 0 !important;
+  font-weight: 500;
+  font-size: 17px;
+}
+
+.main-list-products .bx-menu {
+  font-size: 25px;
+}
+
+.main-list-products .bx-check {
+  font-size: 20px;
+}
+
+.list-product {
+  position: relative;
+
+}
+
+
+/* MAIN */
+.list-pr {
+  width: 310px;
+}
+
+.list-product:hover .list-pr {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.list-pr ul.categories {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .25);
+  padding: 0 !important;
+  border-radius: 10px;
+  margin-top: 10px !important;
+
+}
+
+.list-pr ul li p {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.list-pr ul li {
+  padding: 14px 10px 14px 15px;
+  border-bottom: 1px solid #d8d8d8;
+  cursor: pointer;
+  font-weight: 500
+}
+
+.list-pr ul li i {
+  font-size: 27px;
+  color: #9b9b9b;
+  font-weight: 200 !important;
+}
+
+
+.list-pr ul li:hover i.bx-flip-vertical {
+  display: block;
+  color: #FF8531;
+}
+
+/* .list-pr ul li:hover i.bx-chevron-left {
+  display: none;
+} */
+
+.sub-menu {
+  display: flex;
+  flex-direction: column;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  padding: 0 !important;
+}
+
+.main-menu.active>.sub-menu {
+  max-height: 500px;
+  /* đủ lớn */
+  opacity: 1;
+}
+
+.main-menu.active {
+  box-shadow: 2px 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Xoay icon khi active */
+.main-menu>p i {
+  transition: transform 0.3s;
+}
+
+.main-menu.active>p i {
+  transform: rotate(-90deg);
+}
+
+.sub-menu li:hover {
+  color: #FF8531 !important;
+}
+
+.show-all {
+  display: flex !important;
+  align-items: center;
+  justify-content: start !important;
+  gap: 6px;
+}
+
+.categories li:hover p,
+.categories .show-all:hover p {
+  color: #FF8531 !important;
+}
+
+.search {
+  width: 57%;
+  position: relative;
+  height: fit-content;
+  margin: 0 48px 0 30px;
+}
+
+#ip-search {
+  width: 100%;
+  font-size: 15px;
+  font-weight: 300;
+  height: 46px;
+  border: 1px solid #dedede;
+  border-radius: 4px;
+  outline: 0;
+  padding: .375rem .75rem;
+}
+
+.search .bx-search {
+  position: absolute;
+  top: 50%;
+  right: 1%;
+  transform: translate(-50%, -50%);
+  color: #c0bebe;
+  font-size: 22px;
+}
+
+.registered-sales {
+  align-items: center;
+  background: #fff6f0;
+  border: 1px solid #ff9952;
+  border-radius: 4px;
+  color: #0f2437;
+  display: flex;
+  font-size: 17px;
+  font-weight: 500;
+  height: 46px;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0 27px;
+}
+
+.list-pr ul li:last-child {
+  border: 0px;
+}
+
+.filter-bar {
+  display: flex;
+  background: #f5f5f5;
+  border-radius: 5px;
+  overflow: hidden;
+  width: 74%;
+  font-family: Arial, sans-serif;
+  height: fit-content;
+  margin: 10px 0 0 30px;
+}
+
+.filter-bar button {
+  flex: 1;
+  padding: 8px 20px;
+  border: none;
+  background: #f5f5f5;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.filter-bar button:hover {
+  background: #ddd;
+}
+
+.filter-bar button.active {
+  background: #ff6600;
+  color: #fff;
+  font-weight: bold;
+}
+
+.show-all-product {
+  display: flex;
+}
+
